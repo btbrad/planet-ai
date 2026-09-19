@@ -22,6 +22,9 @@
     "@mastra/libsql": "^1.23.0",
     "@mastra/memory": "^1.30.0",
     "@mastra/observability": "1.17.8",
+    "@mastra/pg": "^1.25.0",
+    "@mastra/rag": "^2.6.3",
+    "ai": "^7.0.107",
     "zod": "^4.4.3"
   },
   "devDependencies": {
