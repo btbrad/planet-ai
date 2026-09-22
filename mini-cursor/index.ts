@@ -1,9 +1,27 @@
 import { createAgent } from 'langchain'
+import { MultiServerMCPClient } from '@langchain/mcp-adapters'
 import { tools } from './tools.ts'
 
+// 1. 通过 npx 启动官方 FileSystem MCP，拿到文件工具
+const mcpClient = new MultiServerMCPClient({
+  mcpServers: {
+    filesystem: {
+      transport: 'stdio',
+      command: 'npx',
+      args: ['-y', '@modelcontextprotocol/server-filesystem', process.cwd()],
+    },
+  },
+})
+
+const fileTools = await mcpClient.getTools()
+
+// 2. FileSystem MCP 没有 execute_command，补一个手写的，两者混用
+const allTools = [...fileTools, tools[3]]
+
+// 3. 创建 Agent
 const agent = createAgent({
   model: 'deepseek:deepseek-v4-flash',
-  tools,
+  tools: allTools as any,
   systemPrompt: `你是一个项目管理助手，可以使用工具操作文件系统和执行命令。
 
 工作目录: ${process.cwd()}
@@ -28,3 +46,6 @@ const result = await agent.invoke(
 )
 
 console.log('\n✅ 完成:', result.messages.at(-1)?.content)
+
+// 4. 关闭连接
+await mcpClient.close()

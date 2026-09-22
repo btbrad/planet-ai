@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@langchain/mcp-adapters": "^1.1.4"
+  }
+}
