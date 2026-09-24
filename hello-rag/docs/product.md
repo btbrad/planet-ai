@@ -1,3 +1,10 @@
+---
+title: 产品介绍
+docType: product
+audience: customer
+updatedAt: "2026-01-01"
+---
+
 # 产品介绍
 
 星盘是冴羽科技的旗舰产品，一个轻量级的项目管理工具。

@@ -13,6 +13,7 @@
     "@langchain/community": "^1.1.29",
     "@langchain/textsplitters": "^1.0.1",
     "cheerio": "^1.2.0",
+    "gray-matter": "^4.0.3",
     "langchain": "^1.5.11"
   }
 }

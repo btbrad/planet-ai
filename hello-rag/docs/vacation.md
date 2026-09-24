@@ -1,3 +1,10 @@
+---
+title: 休假制度
+docType: policy
+audience: internal
+updatedAt: "2026-01-01"
+---
+
 # 休假制度
 
 ## 周末与法定节假日
