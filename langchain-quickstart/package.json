@@ -13,6 +13,7 @@
     "@langchain/core": "^1.2.12",
     "@langchain/deepseek": "^1.1.13",
     "@langchain/langgraph": "^1.4.16",
+    "@modelcontextprotocol/server": "^2.1.0",
     "langchain": "^1.5.11",
     "zod": "^4.6.5"
   }
